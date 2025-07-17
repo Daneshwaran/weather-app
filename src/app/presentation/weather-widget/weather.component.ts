@@ -1,6 +1,7 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, Signal, inject } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
+import { WeatherApplicationService } from '../../application/weather.application';
 import { WeatherData } from '../../domain/weather';
 import { WeatherRepositoryService } from '../../repository/weather.service';
 
@@ -13,16 +14,14 @@ import { WeatherRepositoryService } from '../../repository/weather.service';
 })
 export class WeatherComponent {
   public weatherService = inject(WeatherRepositoryService);
+  private weatherApplicationService = inject(WeatherApplicationService);
 
-  weather = signal<WeatherData | null>(null);
-
-  getWeather(city: string) {
-    this.weatherService.getWeather(city).then((data) => {
-      this.weather.set(data);
-    });
-  }
+  public weatherData: Signal<WeatherData | null> =
+    this.weatherApplicationService.weather;
+  public loading: Signal<boolean> = this.weatherApplicationService.loading;
+  public error: Signal<string | null> = this.weatherApplicationService.error;
 
   ngOnInit() {
-    this.getWeather('London');
+    // this.weatherApplicationService.fetchWeather();
   }
 }

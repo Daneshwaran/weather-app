@@ -23,11 +23,19 @@ export class WeatherApplicationService {
       const data = await this.weatherRepository.getWeather(city);
       this.weatherSignal.set(data);
     } catch (err) {
+      console.error(err);
+      this.weatherSignal.set(null);
       this.errorSignal.set(
         err instanceof Error ? err.message : 'Unknown error'
       );
     } finally {
       this.loadingSignal.set(false);
     }
+  }
+
+  clearWeather() {
+    this.loadingSignal.set(false);
+    this.errorSignal.set(null);
+    this.weatherSignal.set(null);
   }
 }

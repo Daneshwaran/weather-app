@@ -1,7 +1,8 @@
 <div class="weather_widget">
-  @if (weather(); as data) {
+  @if (weatherData(); as data) {
   <div>
     <h2>Weather Information</h2>
+    <p>City: {{ data.city }}</p>
     <p>Temperature: {{ data.temperature }}°C</p>
     <p>Description: {{ data.description }}</p>
     <p>Humidity: {{ data.humidity }}%</p>
@@ -12,9 +13,18 @@
     <p>Cloud: {{ data.cloud }}%</p>
     <p>Visibility: {{ data.visibility }} km</p>
   </div>
-  } @else {
+  } @else if (loading()) {
   <div>
     <h2>Loading weather data...</h2>
+  </div>
+  } @else if (error()) {
+  <div>
+    <h2>Error loading weather data</h2>
+    <p>{{ error() }}</p>
+  </div>
+  } @else {
+  <div>
+    <h2>Search for a city and get the weather information</h2>
   </div>
   }
 </div>

@@ -25,6 +25,7 @@ export class WeatherRepositoryService {
 
     return firstValueFrom(this.http.get<WeatherResponseDto>(url)).then(
       (response: WeatherResponseDto) => ({
+        city: response.location.name,
         temperature: response.current.temp_c,
         description: response.current.condition.text,
         humidity: response.current.humidity,

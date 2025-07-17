@@ -1,4 +1,10 @@
 <div class="search_bar">
-  <input type="text" placeholder="Search for a city" />
-  <button>Search</button>
+  <input
+    #cityInput
+    type="text"
+    placeholder="Search for a city"
+    [(ngModel)]="city"
+  />
+  <button (click)="search()">Search</button>
+  <button (click)="clear()">Clear</button>
 </div>
