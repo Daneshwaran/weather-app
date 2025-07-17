@@ -24,4 +24,8 @@ export class WeatherComponent {
   ngOnInit() {
     // this.weatherApplicationService.fetchWeather();
   }
+
+  saveWeather(weather: WeatherData) {
+    this.weatherApplicationService.saveWeather(weather);
+  }
 }

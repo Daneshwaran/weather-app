@@ -35,6 +35,7 @@ export class WeatherRepositoryService {
         precipitation: response.current.precip_mm,
         cloud: response.current.cloud,
         visibility: response.current.vis_km,
+        lastUpdated: response.current.last_updated,
       })
     );
   }

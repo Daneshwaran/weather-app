@@ -9,4 +9,5 @@ export interface WeatherData {
   precipitation: number;
   cloud: number;
   visibility: number;
+  lastUpdated: string;
 }

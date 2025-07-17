@@ -12,6 +12,8 @@
     <p>Precipitation: {{ data.precipitation }} mm</p>
     <p>Cloud: {{ data.cloud }}%</p>
     <p>Visibility: {{ data.visibility }} km</p>
+    <p>Last Updated: {{ data.lastUpdated | date : "dd/MM/yyyy HH:mm" }}</p>
+    <button (click)="saveWeather(data)">Save Weather</button>
   </div>
   } @else if (loading()) {
   <div>

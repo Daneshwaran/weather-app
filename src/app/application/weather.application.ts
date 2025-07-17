@@ -6,6 +6,7 @@ import { signal } from '@angular/core';
 @Injectable({ providedIn: 'root' })
 export class WeatherApplicationService {
   private weatherSignal = signal<WeatherData | null>(null);
+  public savedWeatherSignal = signal<WeatherData | null>(null);
   private loadingSignal = signal(false);
   private errorSignal = signal<string | null>(null);
 
@@ -31,6 +32,10 @@ export class WeatherApplicationService {
     } finally {
       this.loadingSignal.set(false);
     }
+  }
+
+  saveWeather(weather: WeatherData) {
+    this.savedWeatherSignal.set(weather);
   }
 
   clearWeather() {
