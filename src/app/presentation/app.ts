@@ -1,11 +1,11 @@
 import { Component, signal } from '@angular/core';
 
-import { RouterOutlet } from '@angular/router';
-import { WeatherComponent } from './weather.component';
+import { SearchBar } from './search-bar/search-bar';
+import { WeatherComponent } from './weather-widget/weather.component';
 
 @Component({
   selector: 'app-root',
-  imports: [WeatherComponent],
+  imports: [WeatherComponent, SearchBar],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

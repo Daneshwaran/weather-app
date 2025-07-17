@@ -1,0 +1,20 @@
+<div class="weather_widget">
+  @if (weather(); as data) {
+  <div>
+    <h2>Weather Information</h2>
+    <p>Temperature: {{ data.temperature }}°C</p>
+    <p>Description: {{ data.description }}</p>
+    <p>Humidity: {{ data.humidity }}%</p>
+    <p>Wind Speed: {{ data.windSpeed }} km/h</p>
+    <p>Wind Direction: {{ data.windDirection }}</p>
+    <p>Pressure: {{ data.pressure }} hPa</p>
+    <p>Precipitation: {{ data.precipitation }} mm</p>
+    <p>Cloud: {{ data.cloud }}%</p>
+    <p>Visibility: {{ data.visibility }} km</p>
+  </div>
+  } @else {
+  <div>
+    <h2>Loading weather data...</h2>
+  </div>
+  }
+</div>
