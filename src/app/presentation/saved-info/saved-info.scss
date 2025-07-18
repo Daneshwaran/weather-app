@@ -1,0 +1,103 @@
+.saved-info-card {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 8px 0;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.saved-info-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.last-updated {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+}
+
+.weather-main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.temperature-section {
+  text-align: center;
+  padding: 20px 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px;
+}
+
+.temperature {
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+
+.description {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  text-transform: capitalize;
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.detail-item:hover {
+  background: #e9ecef;
+}
+
+.detail-item mat-icon {
+  color: #667eea;
+}
+
+.delete-button {
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.delete-button:hover {
+  opacity: 1;
+}
+
+// Responsive design
+@media (max-width: 600px) {
+  .saved-info-card {
+    max-width: 100%;
+  }
+
+  .weather-details {
+    grid-template-columns: 1fr;
+  }
+
+  .temperature {
+    font-size: 2.5rem;
+  }
+}

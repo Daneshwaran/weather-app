@@ -6,6 +6,7 @@ import { WeatherComponent } from './weather-widget/weather.component';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [WeatherComponent, SearchBar, SavedWeather],
   templateUrl: './app.html',
   styleUrl: './app.scss',

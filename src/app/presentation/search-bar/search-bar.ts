@@ -9,6 +9,7 @@ import { WeatherApplicationService } from '../../application/weather.application
 
 @Component({
   selector: 'app-search-bar',
+  standalone: true,
   imports: [
     FormsModule,
     MatFormFieldModule,

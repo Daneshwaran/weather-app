@@ -1,7 +1,22 @@
-<div class="main_container">
+<div class="saved-weather-container">
   @if (savedWeather() === null) {
-  <p>No saved weather data</p>
+  <mat-card class="empty-state-card">
+    <mat-card-content>
+      <div class="empty-state-content">
+        <mat-icon class="empty-icon">bookmark_border</mat-icon>
+        <h2>No Saved Weather Data</h2>
+        <p>Search for weather information and save it to see it here</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
   } @else {
-  <h1>Saved Weather</h1>
+  <div class="saved-header">
+    <h1>
+      <mat-icon>bookmark</mat-icon>
+      Saved Weather
+    </h1>
+    <p>Your saved weather information</p>
+  </div>
+  <div class="saved-content"></div>
   }
 </div>

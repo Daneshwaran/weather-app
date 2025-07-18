@@ -6,12 +6,14 @@ import {
   inject,
 } from '@angular/core';
 
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 import { SaveApplicationService } from '../../application/save.application';
 import { WeatherApplicationService } from '../../application/weather.application';
 
 @Component({
   selector: 'app-saved-weather',
-  imports: [],
+  imports: [MatCardModule, MatIconModule],
   templateUrl: './saved-weather.html',
   styleUrl: './saved-weather.scss',
 })

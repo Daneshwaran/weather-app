@@ -1,12 +1,14 @@
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 import { SaveApplicationService } from '../../application/save.application';
 import { WeatherApplicationService } from '../../application/weather.application';
 import { WeatherData } from '../../domain/weather';
 
 @Component({
   selector: 'app-saved-info',
-  imports: [],
+  imports: [MatCardModule, MatIconModule],
   templateUrl: './saved-info.html',
   styleUrl: './saved-info.scss',
 })

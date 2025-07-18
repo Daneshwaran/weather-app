@@ -57,6 +57,43 @@
             <mat-icon>visibility</mat-icon>
             <span>Visibility: {{ data.visibility }} km</span>
           </div>
+          <div class="detail-item">
+            <mat-icon>wind_power</mat-icon>
+            <span>Wind Speed: {{ data.wind_mph }} mph</span>
+          </div>
+          <div class="detail-item">
+            <mat-icon>water_drop</mat-icon>
+            <span>Precipitation: {{ data.precipitation }} mm</span>
+          </div>
+          <div class="detail-item">
+            <mat-icon>cloud</mat-icon>
+            <span>Cloud: {{ data.cloud }}%</span>
+          </div>
+          <div class="detail-item">
+            <mat-icon>visibility</mat-icon>
+            <span>Visibility: {{ data.visibility }} km</span>
+          </div>
+          <div class="detail-item">
+            <mat-icon>sunny</mat-icon>
+            <span>UV Index: {{ data.uv }}</span>
+          </div>
+          <div class="detail-item">
+            <mat-icon>air</mat-icon>
+            <span>Gust Speed: {{ data.gust_mph }} mph</span>
+          </div>
+
+          <div class="detail-item">
+            <mat-icon>sunny</mat-icon>
+            <span>Feels Like: {{ data.feelslike_c }}°C</span>
+          </div>
+          <div class="detail-item">
+            <mat-icon>sunny</mat-icon>
+            <span>Feels Like: {{ data.feelslike_c }}°C</span>
+          </div>
+          <div class="detail-item">
+            <mat-icon>cloud</mat-icon>
+            <span> Condition: {{ data.condition.text }}</span>
+          </div>
         </div>
       </div>
     </mat-card-content>
