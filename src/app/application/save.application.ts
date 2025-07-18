@@ -12,10 +12,12 @@ export class SaveApplicationService {
   // Signals
   private savedWeatherSignal = signal<WeatherData | null>(null);
   private deleteWeatherSignal = signal<string | null>(null);
+  private savedCityCountSignal = signal<number>(0);
 
   // Public readonly signals
   public savedWeather = this.savedWeatherSignal.asReadonly();
   public deleteWeather = this.deleteWeatherSignal.asReadonly();
+  public savedCityCount = this.savedCityCountSignal.asReadonly();
 
   constructor() {
     this.setupEffects();
@@ -49,6 +51,7 @@ export class SaveApplicationService {
         componentRef.setInput('weather', weather);
         componentRef.setInput('id', weather.id);
         this.componentRefs.set(weather.id, componentRef);
+        this.savedCityCountSignal.set(this.savedCityCountSignal() + 1);
       }
     });
 
@@ -59,6 +62,7 @@ export class SaveApplicationService {
         if (componentRef) {
           componentRef.destroy();
           this.componentRefs.delete(deleteWeatherId);
+          this.savedCityCountSignal.set(this.savedCityCountSignal() - 1);
         }
         this.clearDeleteWeather();
       }

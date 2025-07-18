@@ -21,7 +21,7 @@ export class SavedWeather implements OnInit, OnDestroy {
   private saveApplicationService = inject(SaveApplicationService);
   private vcr = inject(ViewContainerRef);
   private weatherApplicationService = inject(WeatherApplicationService);
-  public savedWeather = this.weatherApplicationService.weather;
+  public savedCityCount = this.saveApplicationService.savedCityCount;
 
   ngOnInit() {
     this.saveApplicationService.setViewContainerRef(this.vcr);
