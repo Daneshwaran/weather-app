@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 
+import { SaveApplicationService } from '../../application/save.application';
 import { WeatherApplicationService } from '../../application/weather.application';
 import { WeatherData } from '../../domain/weather';
 
@@ -13,8 +14,9 @@ export class SavedInfo {
   @Input() weather!: WeatherData;
   @Input() id!: string;
 
-  private weatherApplicationService = inject(WeatherApplicationService);
+  private saveApplicationService = inject(SaveApplicationService);
+
   deleteSavedWeather(id: string) {
-    this.weatherApplicationService.deleteSavedWeather(id);
+    this.saveApplicationService.deleteSavedWeather(id);
   }
 }

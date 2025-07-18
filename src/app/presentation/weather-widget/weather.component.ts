@@ -1,6 +1,7 @@
 import { Component, Signal, inject } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
+import { SaveApplicationService } from '../../application/save.application';
 import { WeatherApplicationService } from '../../application/weather.application';
 import { WeatherData } from '../../domain/weather';
 import { WeatherRepositoryService } from '../../repository/weather.service';
@@ -15,17 +16,14 @@ import { WeatherRepositoryService } from '../../repository/weather.service';
 export class WeatherComponent {
   public weatherService = inject(WeatherRepositoryService);
   private weatherApplicationService = inject(WeatherApplicationService);
+  private saveApplicationService = inject(SaveApplicationService);
 
   public weatherData: Signal<WeatherData | null> =
     this.weatherApplicationService.weather;
   public loading: Signal<boolean> = this.weatherApplicationService.loading;
   public error: Signal<string | null> = this.weatherApplicationService.error;
 
-  ngOnInit() {
-    // this.weatherApplicationService.fetchWeather();
-  }
-
   saveWeather(weather: WeatherData) {
-    this.weatherApplicationService.saveWeather(weather);
+    this.saveApplicationService.saveWeather(weather);
   }
 }

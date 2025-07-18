@@ -1,10 +1,7 @@
 <div class="main_container">
-  <h1>Saved Weather</h1>
-  @if (savedWeather(); as weather) {
-  <!-- <p>City: {{ weather.city }}</p>
-  <p>Temperature: {{ weather.temperature }}</p>
-  <p>Last Updated: {{ weather.lastUpdated }}</p> -->
-  } @else {
+  @if (savedWeather() === null) {
   <p>No saved weather data</p>
+  } @else {
+  <h1>Saved Weather</h1>
   }
 </div>

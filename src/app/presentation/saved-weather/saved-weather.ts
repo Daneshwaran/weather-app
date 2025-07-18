@@ -1,16 +1,13 @@
 import {
   Component,
-  ComponentRef,
-  Signal,
+  OnDestroy,
+  OnInit,
   ViewContainerRef,
-  effect,
   inject,
 } from '@angular/core';
 
-import { DatePipe } from '@angular/common';
-import { SavedInfo } from '../saved-info/saved-info';
+import { SaveApplicationService } from '../../application/save.application';
 import { WeatherApplicationService } from '../../application/weather.application';
-import { WeatherData } from '../../domain/weather';
 
 @Component({
   selector: 'app-saved-weather',
@@ -18,42 +15,17 @@ import { WeatherData } from '../../domain/weather';
   templateUrl: './saved-weather.html',
   styleUrl: './saved-weather.scss',
 })
-export class SavedWeather {
-  private weatherApplicationService = inject(WeatherApplicationService);
+export class SavedWeather implements OnInit, OnDestroy {
+  private saveApplicationService = inject(SaveApplicationService);
   private vcr = inject(ViewContainerRef);
-  private componentRefs = new Map<string, ComponentRef<SavedInfo>>();
+  private weatherApplicationService = inject(WeatherApplicationService);
+  public savedWeather = this.weatherApplicationService.weather;
 
-  public savedWeather: Signal<WeatherData | null> =
-    this.weatherApplicationService.savedWeatherSignal;
+  ngOnInit() {
+    this.saveApplicationService.setViewContainerRef(this.vcr);
+  }
 
-  public deleteWeather: Signal<string | null> =
-    this.weatherApplicationService.deleteWeatherSignal;
-
-  constructor() {
-    effect(() => {
-      const weather = this.savedWeather();
-      if (weather) {
-        if (this.componentRefs.has(weather.id)) {
-          return;
-        }
-        const componentRef = this.vcr.createComponent(SavedInfo);
-        componentRef.setInput('weather', weather);
-        componentRef.setInput('id', weather.id);
-        this.componentRefs.set(weather.id, componentRef);
-      }
-    });
-
-    effect(() => {
-      const deleteWeatherId = this.deleteWeather();
-      if (deleteWeatherId !== null) {
-        const componentRef = this.componentRefs.get(deleteWeatherId);
-        if (componentRef) {
-          componentRef.destroy();
-          this.componentRefs.delete(deleteWeatherId);
-        }
-        // Clear the signal after processing
-        this.weatherApplicationService.clearDeleteWeather();
-      }
-    });
+  ngOnDestroy() {
+    this.saveApplicationService.destroy();
   }
 }
