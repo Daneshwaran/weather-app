@@ -1,6 +1,10 @@
 import { Component, Signal, inject } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SaveApplicationService } from '../../application/save.application';
 import { WeatherApplicationService } from '../../application/weather.application';
 import { WeatherData } from '../../domain/weather';
@@ -9,7 +13,13 @@ import { WeatherRepositoryService } from '../../repository/weather.service';
 @Component({
   selector: 'app-weather',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+  ],
   templateUrl: './weather.component.html',
   styleUrl: './weather.component.scss',
 })

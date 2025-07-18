@@ -1,7 +1,38 @@
-.search_bar {
+.search-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 16px;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  padding: 24px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.search-field {
+  width: 100%;
+  max-width: 400px;
+}
+
+.button-container {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+// Responsive design
+@media (max-width: 600px) {
+  .search-container {
+    padding: 16px;
+  }
+
+  .button-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .button-container button {
+    width: 100%;
+  }
 }

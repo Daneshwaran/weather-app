@@ -1,32 +1,96 @@
-<div class="weather_widget">
+<div class="weather-container">
   @if (weatherData(); as data) {
-  <div>
-    <h2>Weather Information</h2>
-    <p>City: {{ data.city }}</p>
-    <p>Temperature: {{ data.temperature }}°C</p>
-    <p>Description: {{ data.description }}</p>
-    <p>Humidity: {{ data.humidity }}%</p>
-    <p>Wind Speed: {{ data.windSpeed }} km/h</p>
-    <p>Wind Direction: {{ data.windDirection }}</p>
-    <p>Pressure: {{ data.pressure }} hPa</p>
-    <p>Precipitation: {{ data.precipitation }} mm</p>
-    <p>Cloud: {{ data.cloud }}%</p>
-    <p>Visibility: {{ data.visibility }} km</p>
-    <p>Last Updated: {{ data.lastUpdated | date : "dd/MM/yyyy HH:mm" }}</p>
-    <button (click)="saveWeather(data)">Save Weather</button>
-  </div>
+  <mat-card class="weather-card">
+    <mat-card-header>
+      <div class="header-container">
+        <mat-card-title>
+          <mat-icon>location_on</mat-icon>
+          {{ data.city }}
+        </mat-card-title>
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="saveWeather(data)"
+          aria-label="Save weather information"
+        >
+          <mat-icon>bookmark</mat-icon>
+          Save Weather
+        </button>
+      </div>
+    </mat-card-header>
+    <mat-card-subtitle class="last-updated">
+      <mat-icon>schedule</mat-icon>
+      Last updated: {{ data.lastUpdated | date : "dd/MM/yyyy HH:mm" }}
+    </mat-card-subtitle>
+
+    <mat-card-content>
+      <div class="weather-main">
+        <div class="temperature-section">
+          <div class="temperature">{{ data.temperature }}°C</div>
+          <div class="description">{{ data.description }}</div>
+        </div>
+
+        <div class="weather-details">
+          <div class="detail-item">
+            <mat-icon>opacity</mat-icon>
+            <span>Humidity: {{ data.humidity }}%</span>
+          </div>
+          <div class="detail-item">
+            <mat-icon>air</mat-icon>
+            <span
+              >Wind: {{ data.windSpeed }} km/h {{ data.windDirection }}</span
+            >
+          </div>
+          <div class="detail-item">
+            <mat-icon>speed</mat-icon>
+            <span>Pressure: {{ data.pressure }} hPa</span>
+          </div>
+          <div class="detail-item">
+            <mat-icon>water_drop</mat-icon>
+            <span>Precipitation: {{ data.precipitation }} mm</span>
+          </div>
+          <div class="detail-item">
+            <mat-icon>cloud</mat-icon>
+            <span>Cloud: {{ data.cloud }}%</span>
+          </div>
+          <div class="detail-item">
+            <mat-icon>visibility</mat-icon>
+            <span>Visibility: {{ data.visibility }} km</span>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions> </mat-card-actions>
+  </mat-card>
   } @else if (loading()) {
-  <div>
-    <h2>Loading weather data...</h2>
-  </div>
+  <mat-card class="loading-card">
+    <mat-card-content>
+      <div class="loading-content">
+        <mat-spinner diameter="40"></mat-spinner>
+        <h2>Loading weather data...</h2>
+      </div>
+    </mat-card-content>
+  </mat-card>
   } @else if (error()) {
-  <div>
-    <h2>Error loading weather data</h2>
-    <p>{{ error() }}</p>
-  </div>
+  <mat-card class="error-card">
+    <mat-card-content>
+      <div class="error-content">
+        <mat-icon color="warn">error</mat-icon>
+        <h2>Error loading weather data</h2>
+        <p>{{ error() }}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
   } @else {
-  <div>
-    <h2>Search for a city and get the weather information</h2>
-  </div>
+  <mat-card class="welcome-card">
+    <mat-card-content>
+      <div class="welcome-content">
+        <mat-icon>wb_sunny</mat-icon>
+        <h2>Welcome to Weather App</h2>
+        <p>Search for a city above to get current weather information</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
   }
 </div>

@@ -1,10 +1,37 @@
-<div class="search_bar">
-  <input
-    #cityInput
-    type="text"
-    placeholder="Search for a city"
-    [(ngModel)]="city"
-  />
-  <button (click)="search()">Search</button>
-  <button (click)="clear()">Clear</button>
+<div class="search-container">
+  <mat-form-field appearance="outline" class="search-field">
+    <mat-label>Search for a city</mat-label>
+    <input
+      matInput
+      #cityInput
+      type="text"
+      placeholder="Enter city name"
+      [(ngModel)]="city"
+      (keyup.enter)="search()"
+      aria-label="Enter city name to search weather"
+    />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+
+  <div class="button-container">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="search()"
+      [disabled]="!city.trim()"
+      aria-label="Search weather for entered city"
+    >
+      <mat-icon>search</mat-icon>
+      Search
+    </button>
+
+    <button
+      mat-stroked-button
+      (click)="clear()"
+      aria-label="Clear search input"
+    >
+      <mat-icon>clear</mat-icon>
+      Clear
+    </button>
+  </div>
 </div>

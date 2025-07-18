@@ -1,13 +1,130 @@
-.weather_widget {
+.weather-container {
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.weather-card {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.last-updated {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+}
+
+.weather-main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.temperature-section {
+  text-align: center;
+  padding: 20px 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px;
+}
+
+.temperature {
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+
+.description {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  text-transform: capitalize;
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.detail-item:hover {
+  background: #e9ecef;
+}
+
+.detail-item mat-icon {
+  color: #667eea;
+}
+
+.loading-card,
+.error-card,
+.welcome-card {
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.loading-content,
+.error-content,
+.welcome-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-  height: 100%;
-  background-color: #f0f0f0;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  gap: 16px;
+}
+
+.loading-content mat-spinner {
+  margin-bottom: 16px;
+}
+
+.error-content mat-icon {
+  font-size: 3rem;
+  width: 3rem;
+  height: 3rem;
+}
+
+.welcome-content mat-icon {
+  font-size: 4rem;
+  width: 4rem;
+  height: 4rem;
+  color: #667eea;
+}
+
+// Responsive design
+@media (max-width: 600px) {
+  .weather-container {
+    padding: 16px;
+  }
+
+  .weather-details {
+    grid-template-columns: 1fr;
+  }
+
+  .temperature {
+    font-size: 2.5rem;
+  }
 }
