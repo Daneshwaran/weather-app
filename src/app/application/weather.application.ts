@@ -7,6 +7,7 @@ import { signal } from '@angular/core';
 export class WeatherApplicationService {
   private weatherSignal = signal<WeatherData | null>(null);
   public savedWeatherSignal = signal<WeatherData | null>(null);
+  public deleteWeatherSignal = signal<string | null>(null);
   private loadingSignal = signal(false);
   private errorSignal = signal<string | null>(null);
 
@@ -35,12 +36,22 @@ export class WeatherApplicationService {
   }
 
   saveWeather(weather: WeatherData) {
-    this.savedWeatherSignal.set(weather);
+    this.savedWeatherSignal.set({ ...weather });
+  }
+
+  deleteSavedWeather(id: string | null) {
+    if (id !== null) {
+      this.deleteWeatherSignal.set(id);
+    }
   }
 
   clearWeather() {
     this.loadingSignal.set(false);
     this.errorSignal.set(null);
     this.weatherSignal.set(null);
+  }
+
+  clearDeleteWeather() {
+    this.deleteWeatherSignal.set(null);
   }
 }

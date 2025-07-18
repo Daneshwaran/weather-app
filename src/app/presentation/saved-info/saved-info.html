@@ -1,0 +1,7 @@
+<div class="main_container">
+  <h1>Saved Info</h1>
+  <p>City: {{ weather?.city }}</p>
+  <p>Temperature: {{ weather?.temperature }}</p>
+  <p>Last Updated: {{ weather?.lastUpdated }}</p>
+  <button (click)="deleteSavedWeather(id)">Delete</button>
+</div>
