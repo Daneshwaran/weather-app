@@ -2,8 +2,9 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.0. with Domain Driven Design
 
-<img width="2338" height="1285" alt="Screenshot 2025-07-18 at 4 17 30 PM" src="https://github.com/user-attachments/assets/8af093f6-a2da-4567-95ed-0224caf967ad" />
+Link to app: https://weather-app-five-beta-82.vercel.app/
 
+<img width="2338" height="1285" alt="Screenshot 2025-07-18 at 4 17 30 PM" src="https://github.com/user-attachments/assets/8af093f6-a2da-4567-95ed-0224caf967ad" />
 
 ## 🚀 Features
 
