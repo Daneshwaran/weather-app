@@ -13,6 +13,7 @@ import { WeatherApplicationService } from '../../application/weather.application
 
 @Component({
   selector: 'app-saved-weather',
+  standalone: true,
   imports: [MatCardModule, MatIconModule],
   templateUrl: './saved-weather.html',
   styleUrl: './saved-weather.scss',

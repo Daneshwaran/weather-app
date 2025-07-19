@@ -3,10 +3,6 @@ import {
   provideBrowserGlobalErrorListeners,
   provideZonelessChangeDetection,
 } from '@angular/core';
-import {
-  provideClientHydration,
-  withEventReplay,
-} from '@angular/platform-browser';
 
 import { provideHttpClient } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
@@ -17,7 +13,6 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideRouter(routes),
-    provideClientHydration(withEventReplay()),
     provideHttpClient(),
   ],
 };
