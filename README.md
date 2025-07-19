@@ -1,59 +1,215 @@
-# WeatherApp
+# 🌤️ Weather App
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.0. with Domain Driven Design
 
-## Development server
+## 🚀 Features
 
-To start a local development server, run:
+### Core Functionality
 
-```bash
-ng serve
+- **Real-time Weather Data**: Fetch current weather information for any city worldwide
+- **Search & Display**: Search for cities and view comprehensive weather details
+- **Save Weather Data**: Save favorite cities' weather information for quick access
+- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
+- **Error Handling**: Graceful error handling with user-friendly messages
+
+### Weather Information Display
+
+- Current temperature (Celsius/Fahrenheit)
+- Weather condition with descriptions
+- Humidity, wind speed, and direction
+- Atmospheric pressure and precipitation
+- Visibility and UV index
+- "Feels like" temperature
+- Last updated timestamp
+
+## 🛠️ Technology Stack
+
+### Frontend Framework
+
+- **Angular 20.1.0** - Latest version with modern features
+- **TypeScript 5.8.2** - Type-safe development
+- **Angular Material 20.1.2** - Material Design components
+- **Angular CDK 20.1.2** - Component development kit
+
+### Architecture & Patterns
+
+- **Domain-Driven Design (DDD)** - Clean architecture implementation
+- **Repository Pattern** - Data access abstraction
+- **Application Services** - Business logic layer
+- **Presentation Layer** - UI components separation
+- **Signal-based State Management** - Angular's modern reactive state
+
+### Key Angular Features Used
+
+- **Angular Signals** - Reactive state management
+- **Angular Effects** - Side effect handling
+- **Dependency Injection** - Service management
+- **Component Communication** - Input/Output patterns
+- **Dynamic Component Creation** - Runtime component instantiation
+- **ViewContainerRef** - Dynamic view management
+
+### Styling & UI
+
+- **SCSS/Sass** - Advanced CSS preprocessing
+- **Angular Material Components** - Consistent UI design
+- **Responsive Grid Layout** - CSS Grid and Flexbox
+- **Custom Component Styling** - Modular CSS architecture
+
+### Development Tools
+
+- **Angular CLI 20.1.0** - Development and build tools
+- **Jasmine & Karma** - Unit testing framework
+- **Prettier** - Code formatting
+- **TypeScript Compiler** - Type checking and compilation
+
+### External APIs
+
+- **WeatherAPI.com** - Real-time weather data
+- **HTTP Client** - RESTful API communication
+- **RxJS** - Reactive programming utilities
+
+## 📁 Project Structure
+
+```
+src/app/
+├── application/          # Business logic layer
+│   ├── save.application.ts
+│   └── weather.application.ts
+├── domain/              # Domain models and interfaces
+│   └── weather.ts
+├── presentation/        # UI components
+│   ├── saved-info/
+│   ├── saved-weather/
+│   ├── search-bar/
+│   └── weather-widget/
+├── repository/          # Data access layer
+│   ├── dto/
+│   └── weather.service.ts
+└── app.*               # Main application files
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🚀 Getting Started
 
-## Code scaffolding
+### Prerequisites
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Node.js (v18 or higher)
+- npm or yarn package manager
 
-```bash
-ng generate component component-name
-```
+### Installation
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1. **Clone the repository**
 
-```bash
-ng generate --help
-```
+   ```bash
+   git clone <repository-url>
+   cd weather-app
+   ```
 
-## Building
+2. **Install dependencies**
 
-To build the project run:
+   ```bash
+   npm install
+   ```
+
+3. **Start development server**
+
+   ```bash
+   ng serve
+   ```
+
+4. **Open your browser**
+   Navigate to `http://localhost:4200/`
+
+## 🏗️ Build & Deployment
+
+### Development Build
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Production Build
 
-## Running unit tests
+```bash
+ng build --configuration production
+```
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Server-Side Rendering (SSR)
+
+```bash
+npm run serve:ssr:weather-app
+```
+
+## 🧪 Testing
+
+### Unit Tests
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+### End-to-End Tests
 
 ```bash
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## 🎨 Key Features Implementation
 
-## Additional Resources
+### Signal-Based State Management
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Reactive state updates using Angular Signals
+- Automatic UI updates when data changes
+- Efficient change detection
+
+### Dynamic Component Creation
+
+- Runtime creation of saved weather components
+- Dynamic view container management
+- Component lifecycle handling
+
+### Error Handling
+
+- Comprehensive error boundaries
+- User-friendly error messages
+- Graceful degradation
+
+### Responsive Design
+
+- Mobile-first approach
+- CSS Grid and Flexbox layouts
+- Material Design responsive breakpoints
+
+## 🔧 Development Practices
+
+- **TypeScript** for type safety
+- **ESLint** for code quality
+- **Prettier** for consistent formatting
+- **Component-based architecture**
+- **Service-oriented design**
+- **Reactive programming patterns**
+
+## 📱 Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🔗 Additional Resources
+
+- [Angular Documentation](https://angular.dev/)
+- [Angular Material](https://material.angular.io/)
+- [WeatherAPI Documentation](https://www.weatherapi.com/docs/)
+- [Angular CLI Overview](https://angular.dev/tools/cli)
